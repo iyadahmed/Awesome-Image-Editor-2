@@ -32,6 +32,8 @@ class RootItem:
         ...
 
     def childItems(self):
+        # FIXME: can lead to bad performance, implement a root item in a different way (use a group item for example)
+        # but in that case, the scene has to be managed by the TreeModel
         return [
             item
             for item in self._scene.items(order=Qt.SortOrder.DescendingOrder)
