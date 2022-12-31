@@ -47,7 +47,8 @@ def psd_type_layer_to_text_item(layer: TypeLayer):
         font_size = stylesheet["FontSize"]
 
         qfont = QFont()
-        qfont.setPixelSize(font_size)
+        assert int(font_size) == font_size
+        qfont.setPixelSize(int(font_size))
         qfont.setFamily(font_family)
 
         char_format = QTextCharFormat()
