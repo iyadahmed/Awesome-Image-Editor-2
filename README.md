@@ -1,6 +1,7 @@
 # Work In Progress
 # Awesome Image Editor
 
+# Goal UX by @alezzacreative
 ![screen](https://raw.githubusercontent.com/iyadahmed/Awesome-Image-Editor-2/master/awesome_screenshot.png)
 
 ## How to run:
