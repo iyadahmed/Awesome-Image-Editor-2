@@ -48,6 +48,10 @@ def psd_shape_layer_to_shape_item(layer: ShapeLayer, psd_width: int, psd_height:
     layer_name = layer.name
 
     subpath: Subpath
+
+    items = []
+
+    # Iterate over all subpaths in the layer.vector_mask.paths list
     for subpath in layer.vector_mask.paths:
         num_knots = len(subpath)
         if num_knots == 0:
@@ -69,4 +73,8 @@ def psd_shape_layer_to_shape_item(layer: ShapeLayer, psd_width: int, psd_height:
         item = AIEShapeItem(qpath, layer_name)
         item.setVisible(layer.visible)
 
-        return item
+        # Append the item to the list of items
+        items.append(item)
+
+    # Return the list of items
+    return items
