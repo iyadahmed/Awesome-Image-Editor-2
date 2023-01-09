@@ -47,11 +47,11 @@ def psd_shape_layer_to_shape_item(layer: ShapeLayer, psd_width: int, psd_height:
     left, top = layer.offset
     layer_name = layer.name
 
+    main_qpath = QPainterPath()
+    item = AIEShapeItem(main_qpath, layer_name)
+    item.setVisible(layer.visible)
+
     subpath: Subpath
-
-    items = []
-
-    # Iterate over all subpaths in the layer.vector_mask.paths list
     for subpath in layer.vector_mask.paths:
         num_knots = len(subpath)
         if num_knots == 0:
@@ -70,11 +70,6 @@ def psd_shape_layer_to_shape_item(layer: ShapeLayer, psd_width: int, psd_height:
         if subpath.is_closed():
             _connect_knots_cubic(qpath, subpath[-1], subpath[0], psd_width, psd_height)
 
-        item = AIEShapeItem(qpath, layer_name)
-        item.setVisible(layer.visible)
+        main_qpath.addPath(qpath)
 
-        # Append the item to the list of items
-        items.append(item)
-
-    # Return the list of items
-    return items
+    return item
