@@ -1,4 +1,5 @@
 # Work In Progress
+see: https://github.com/iyadahmed/AwesomeImageEditor3
 # Awesome Image Editor
 
 # Goal UX by @alezzacreative
